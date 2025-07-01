@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="shortcut icon" href="src/img/Pizza_Steve.png" type="image/x-icon">
+    <title>Contador de pizza</title>
+</head>
+
+<body>
+    <div class="container">
+        <a onclick="verRegras()" class="btn-regras">Ver Regras 👁️</a>
+
+        <div class="containerRegras">
+            <ul>
+                <li>
+                    <span class="material-symbols-outlined icon" onclick="fecharRegras()">
+                        cancel
+                    </span>
+                </li>
+
+                <h1>📋 Regras de Uso</h1>
+
+                <li><strong>➕ Botão "+":</strong> contabiliza uma fatia de pizza comida.</li>
+                <li><strong>🍕 Botão da pizza:</strong> restaura o valor salvo no navegador.</li>
+                <li><strong>🗑️ Botão da lixeira:</strong> zera o contador de fatias.</li>
+                <li><strong>📈 Barra de progresso:</strong> cresce conforme as fatias são registradas e para ao atingir
+                    a meta.</li>
+                <li><strong>🎯 Meta:</strong> digite o número de fatias que deseja atingir.</li>
+                <li><strong>💾 Armazenamento:</strong> os dados são salvos localmente no navegador.</li>
+            </ul>
+        </div>
+
+        <div class="metaBatida">
+            <span class="material-symbols-outlined icon meta" onclick="fecharMeta()">
+                cancel
+            </span>
+
+            <img src="src/img/stevegif.gif" alt="steve">
+
+            <h1>Meta Batida !!</h1>
+        </div>
+
+        <img src="src/img/Pizza_Steve.png" alt="logo" class="logo">
+        <audio id="somMordida" src="src/sound/cartoon_bite_sound_effect.mp3" preload="auto"></audio>
+        <audio id="soundWin" src="src/sound/you-win-sequence-1-183948.mp3" preload="auto"></audio>
+
+        <h1>Contador de Fatias</h1>
+
+        <input type="number" id="meta" placeholder="Qual meta a ser batida ?">
+
+        <div class="container-barra">
+            <div class="barra" id="barra"></div>
+        </div>
+
+        <div class="cont-quantidade">
+            <P>Fatias consumidas:</P>
+            <span id="indicador">
+                0
+            </span>
+        </div>
+
+        <div class="cont-buttons">
+            <button onclick="contar()">+</button>
+            <button onclick="pegarQuantidade()"><img src="src/img/pizza.webp" alt="pizza" class="icone"></button>
+            <button onclick="zerarQuantidade()"><img src="src/img/deletar.png" alt="deletar" class="icone"></button>
+        </div>
+
+    </div>
+
+    <script src="src/js/js.js"></script>
+</body>
+
+</html>
