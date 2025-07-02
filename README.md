@@ -1,52 +1,97 @@
-# 🍕 Contador de Fatias de Pizza
 
-Este é um projeto simples e divertido, feito com **HTML**, **CSS** e **JavaScript**, que permite contabilizar o número de fatias de pizza consumidas. Ele inclui som de mordida, barra de progresso e persistência de dados usando localStorage.
+# 🍕 Slice Hero
 
-Foi desenvolvido com o intuito de criar uma dinâmica entre meus colegas da faculdade: a cada semestre concluído, íamos a um rodízio de pizza e fazíamos a contagem das fatias para ver quem comia mais. E assim nasceu este projeto.
+Um projeto divertido e interativo para monitorar quantas fatias de pizza você já comeu, com sistema de pontuação, barra de progresso, som e salvamento no navegador!
 
-## 🎯 Funcionalidades
+---
 
-- ✅ Contador de fatias com botão "+"
-- ✅ Barra de progresso baseada em meta personalizada
-- ✅ Salvamento automático da contagem no navegador
-- ✅ Som de mordida ao contar
-- ✅ Botão para restaurar contagem salva
-- ✅ Botão para zerar o contador
-- ✅ Página de regras explicando o uso
+## 🚀 Funcionalidades
 
-## 🚀 Como usar
+- ✅ Contador de fatias de pizza.
+- 🎯 Defina uma **meta de consumo** (quantidade de fatias desejadas).
+- 📈 Barra de progresso interativa que cresce conforme você consome fatias.
+- 💾 Dados persistem via `localStorage` (mesmo após atualizar a página).
+- 🗑️ Botão para **zerar** o contador.
+- 🍕 Botão para restaurar o valor salvo.
+- 🏆 Sistema de pontuação: **1 ponto a cada 3 fatias**.
+- 🎉 Animação e som de vitória ao atingir a meta.
+- 📄 Botão de impressão da tela.
+- 📋 Modal com **regras de uso**.
+- 🔊 Efeitos sonoros personalizados.
 
-1. Abra o arquivo `index.html` em seu navegador.
-2. Digite sua meta de fatias no campo de entrada.
-3. Clique no botão `+` a cada fatia comida.
-4. Acompanhe o progresso visual com a barra verde.
-5. Use o botão de pizza para restaurar contagem salva.
-6. Use o botão de lixeira para zerar a contagem.
+---
 
-## 📄 Página de Regras
+## 🧪 Tecnologias Utilizadas
 
-Você pode abrir o arquivo `regras.html` para ler as instruções de uso de forma independente.
+- **HTML5**
+- **CSS3** (com responsividade e animações)
+- **JavaScript puro (Vanilla JS)**
+- Google Fonts (`Poppins`)
+- Ícones do Google Material Symbols
 
-## 📁 Estrutura de Pastas
+---
+
+## 🗂️ Estrutura de Pastas
 
 ```
 contador-pizza/
+│
 ├── index.html
-├── regras.html
 ├── src/
 │   ├── css/
 │   │   └── style.css
+│   ├── js/
+│   │   ├── js.js
+│   │   └── pontos.js
 │   ├── img/
-│   ├── sound/
-│   └── js/
-├── README.md
+│   │   ├── Pizza_Steve.png
+│   │   ├── vitoria.gif
+│   │   ├── deletar.png
+│   │   └── pizza.webp
+│   └── sound/
+│       ├── cartoon_bite_sound_effect.mp3
+│       └── you-win-sequence-1-183948.mp3
+└── README.md
 ```
 
-## 📦 Tecnologias
+---
 
-- HTML5
-- CSS3
-- JavaScript
-- localStorage
+## 📦 Como Usar
 
-Desenvolvido por 💻 Carlos você com estilo e pizza. 🍕
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/contador-pizza.git
+   ```
+
+2. **Abra o arquivo `index.html`** em qualquer navegador moderno.
+
+---
+
+## 💡 Como Funciona?
+
+- **Botão "+"**: adiciona uma fatia e atualiza o progresso.
+- **Campo de meta**: define o número total de fatias que você deseja atingir.
+- **Barra verde**: aumenta proporcionalmente até atingir a meta.
+- **Pontuação**: é calculada automaticamente com base nas fatias consumidas.
+- **Som de mordida**: é tocado a cada fatia registrada.
+- **Som de vitória + animação**: aparece ao atingir a meta.
+- **Zerar**: remove tudo do navegador e reinicia a contagem.
+
+---
+
+## 📱 Responsividade
+
+Totalmente adaptado para diferentes tamanhos de tela — desde celulares até desktops.
+
+---
+
+## ⚠️ Observações
+
+- Os dados são salvos apenas localmente no seu navegador, usando `localStorage`.
+- Certifique-se de inserir um número válido no campo de meta antes de começar.
+
+---
+
+## 📃 Licença
+
+Este projeto é de uso livre para fins educacionais ou pessoais. Para usos comerciais, favor entrar em contato com o autor.

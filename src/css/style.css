@@ -29,7 +29,7 @@ body {
     gap: 35px;
     position: relative;
     overflow: hidden;
-    padding: 20px;
+    padding: 15px;
 }
 
 .btn-regras {
@@ -170,7 +170,8 @@ body {
 
 .logo {
     width: 100px;
-    margin-top: 50px;
+    border-radius: 50%;
+    align-items:flex-start;
 }
 
 .titulo {
@@ -381,13 +382,21 @@ button:hover {
 
 @media (min-width:769px) and (max-width:950px) {
     .container-pontos {
-        width: 35%;
-        height: 250px;
-        top: 5%;
+        width: 30%;
+        height: 100px;
     }
 
     .container-barra {
         width: 90%;
+        height: 20px;
+    }
+
+    .pontos {
+        font-size: 1.5rem;
+    }
+
+    .titulo-pontos {
+        font-size: 1rem;
     }
 }
 
