@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/style.css" media="all">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="src/img/Pizza_Steve.png" type="image/x-icon">
@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <a onclick="verRegras()" class="btn-regras">Ver Regras 👁️</a>
+        <button onclick="window.print()" class="impressao">📄</button>
 
         <div class="containerRegras">
             <ul>
@@ -32,6 +32,7 @@
                     a meta.</li>
                 <li><strong>🎯 Meta:</strong> digite o número de fatias que deseja atingir.</li>
                 <li><strong>💾 Armazenamento:</strong> os dados são salvos localmente no navegador.</li>
+                <li><strong>🏆 Pontos:</strong> a cada 4 fatias equivale a 1 Pt.</li>
             </ul>
         </div>
 
@@ -42,20 +43,20 @@
 
             <img src="src/img/stevegif.gif" alt="steve">
 
-            <h1>Meta Batida !!</h1>
+            <h1>🎯 Meta atingida !!</h1>
         </div>
+        <a onclick="verRegras()" class="btn-regras">Ver Regras 👁️</a>
 
         <img src="src/img/Pizza_Steve.png" alt="logo" class="logo">
+
         <audio id="somMordida" src="src/sound/cartoon_bite_sound_effect.mp3" preload="auto"></audio>
         <audio id="soundWin" src="src/sound/you-win-sequence-1-183948.mp3" preload="auto"></audio>
 
-        <h1>Contador de Fatias</h1>
+        <h1 class="titulo">Contador de Fatias</h1>
 
         <input type="number" id="meta" placeholder="Qual meta a ser batida ?">
 
-        <div class="container-barra">
-            <div class="barra" id="barra"></div>
-        </div>
+
 
         <div class="cont-quantidade">
             <P>Fatias consumidas:</P>
@@ -64,8 +65,20 @@
             </span>
         </div>
 
+        <div class="container-pontos">
+            <h1 class="titulo-pontos"><span class="taca">🏆</span> Pontuação</h1>
+
+            <h2 class="pontos">0</h2>
+
+            <img src="src/img/vitoria.gif" alt="vitoria" id="vitoriaGif">
+
+            <div class="container-barra">
+                <div class="barra" id="barra"></div>
+            </div>
+        </div>
+
         <div class="cont-buttons">
-            <button onclick="contar()">+</button>
+            <button onclick="contar()" id="calcPontos">+</button>
             <button onclick="pegarQuantidade()"><img src="src/img/pizza.webp" alt="pizza" class="icone"></button>
             <button onclick="zerarQuantidade()"><img src="src/img/deletar.png" alt="deletar" class="icone"></button>
         </div>
@@ -73,6 +86,7 @@
     </div>
 
     <script src="src/js/js.js"></script>
+    <script src="src/js/pontos.js"></script>
 </body>
 
 </html>

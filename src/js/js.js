@@ -4,24 +4,35 @@
 
 const somMordida = document.getElementById('somMordida');        
 const soundWin = document.getElementById('soundWin');
+const container = document.querySelector('.container');
 
 function contar() {
-    contador++;
-    document.getElementById('indicador').innerHTML = contador;
-    localStorage.setItem('contador', contador);  
-    somMordida.currentTime = 0;
-    somMordida.play();
-    addBarra();
-
     const metaInput = document.getElementById('meta').value;
     const meta = parseInt(metaInput);
- 
-    if (!isNaN(meta) && contador === meta) {
-        const metaBatida = document.querySelector('.metaBatida');
-        metaBatida.classList.add('ativo');
+    
+    if (!isNaN(meta)) {
+        contador++;
+        document.getElementById('indicador').innerHTML = contador;
+        localStorage.setItem('contador', contador);  
+        somMordida.currentTime = 0;
+        somMordida.play();
+        addBarra();
 
-        soundWin.currentTime = 0;
-        soundWin.play();
+        if (!isNaN(meta) && contador === meta) {
+            const metaBatida = document.querySelector('.metaBatida');
+            metaBatida.classList.add('ativo');
+
+            window.addEventListener('click', (event) => {
+                if (event.target === container) {
+                    metaBatida.classList.remove('ativo');
+                }
+            });
+
+            soundWin.currentTime = 0;
+            soundWin.play();
+        }   
+    } else {
+        alert("Para começar insira sua meta !!");
     }
 }
 
@@ -35,7 +46,18 @@ function zerarQuantidade() {
     contador = 0;
     document.getElementById('indicador').innerHTML = contador;
     localStorage.removeItem('contador');
-    barra.style.width = 0 + 'px'
+    barra.style.width = 0 + 'px';
+
+    const taca = document.querySelector('.taca');
+    taca.classList.remove('ativo');
+
+    document.getElementById('meta').value = '';
+
+    const vitoriaGif = document.getElementById('vitoriaGif');
+    vitoriaGif.style.display = 'none';
+
+    const pontos = document.querySelector('.pontos');
+    pontos.textContent = 0;
 }
 
 function addBarra() {
@@ -48,6 +70,12 @@ function addBarra() {
 }
 
 const regras = document.querySelector('.containerRegras');
+
+window.addEventListener('click', (event) => {
+    if (event.target === container) {
+        regras.classList.remove('ativo');
+    }
+})
 
 function verRegras() {
     regras.classList.add('ativo');

@@ -14,9 +14,13 @@
     font-family: "Poppins", sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .container {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,8 +28,8 @@
     background: #FFF8F0;
     gap: 35px;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
+    padding: 20px;
 }
 
 .btn-regras {
@@ -52,6 +56,7 @@
     overflow-y: auto;
     border-radius: 20px;
     z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .containerRegras.ativo {
@@ -64,6 +69,10 @@
     cursor: pointer;
 }
 
+.containerRegras h1 {
+    color: #3D6155;
+}
+
 .containerRegras ul {
     list-style: none;
     display: flex;
@@ -74,6 +83,54 @@
 .containerRegras ul li {
     color: #FFFFFF;
     font-size: 1.2rem;
+}
+
+.container-pontos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    width: 400px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.taca {
+    display: flex;
+    position: absolute;
+    bottom: 13%;
+    left: 15%;
+    font-size: 5rem;
+    transform: translateX(-100vw);
+    transition: all 0.4s ease-in-out;
+}
+
+.taca.ativo {
+    transform: translateX(0);
+}
+
+.container-pontos h1 {
+    color: #3D6155;
+}
+
+.pontos {
+    font-size: 5rem;
+    font-weight: 400;
+    color: #F89C94;
+}
+
+.container-pontos img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
 }
 
 .metaBatida {
@@ -92,6 +149,11 @@
     transform: translateY(-100vh);
     transition: transform 0.5s ease-in-out;
     z-index: 1000;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.metaBatida h1 {
+    color: #5D9B6A;
 }
 
 .metaBatida.ativo {
@@ -111,7 +173,7 @@
     margin-top: 50px;
 }
 
-.container h1 {
+.titulo {
     color: #3D6155;
     font-weight: 600;
 }
@@ -126,6 +188,9 @@
     background: #5D9B6A;
     color: #FFFFFF;
     font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    transition: all .2s ease-in-out;
 }
 
 #meta::placeholder {
@@ -138,17 +203,21 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
+#meta:focus {
+    border: 3px solid #F89C94;
+}
+
 .container-barra {
     width: 300px;
+    height: 30px;
     background-color: #ddd;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    margin: 20px 0;
 }
 
 .barra {
     width: 0%;
-    height: 50px;
+    height: 100%;
     background: rgb(84, 255, 84);
     transition: width 0.3s ease-in-out;
 }
@@ -210,6 +279,15 @@ button:hover {
     height: auto;
 }
 
+.impressao {
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
 @media (min-width: 769px) and (max-width:1400px) {
     .containerRegras {
         width: 80%;
@@ -226,21 +304,99 @@ button:hover {
     }
 
     .cont-quantidade {
-        width: 90%;
+        width: 95%;
     }
 
     .containerRegras {
         width: 100%;
         height: 100%;
-        overflow: hidden;
         border-radius: 0%;
     }
 
     #meta {
-        width: 90%;
+        width: 95%;
     }
 
     .container-barra {
+        width: 100%;
+        height: 15px;
+    }
+
+    .container-pontos {
+        width: 30%;
+        height: 150px;
+        top: 5%;
+    }
+
+    .pontos {
+        font-size: 2rem;
+    }
+
+    .titulo-pontos {
+        font-size: 1rem;
+    }
+
+    .taca {
+        font-size: 1.5rem;
+        bottom: 30%;
+    }
+
+    .metaBatida {
         width: 95%;
+        height: 70%;
+    }
+}
+
+@media (min-width:1051px) and (max-width:1250px){
+    .container-pontos {
+        width: 300px;
+    }
+
+    .container-barra {
+        width: 90%;
+    }
+}
+
+@media (min-width:951px) and (max-width:1050px) {
+    .container-pontos {
+        width: 250px;
+    }
+
+    .container-pontos h1 {
+        font-size: 2rem;
+    }
+
+    .pontos {
+        font-size: 2rem;
+    }
+
+    .taca {
+        font-size: 2.5rem;
+    }
+
+    .container-barra {
+        width: 90%;
+    }
+}
+
+@media (min-width:769px) and (max-width:950px) {
+    .container-pontos {
+        width: 35%;
+        height: 250px;
+        top: 5%;
+    }
+
+    .container-barra {
+        width: 90%;
+    }
+}
+
+@media (max-width:950px) {
+    .container-pontos {
+        top: 6%;
+    }
+
+    .impressao {
+        display: none;
     }
 }
