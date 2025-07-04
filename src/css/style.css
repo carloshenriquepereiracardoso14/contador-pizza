@@ -18,14 +18,22 @@ body {
     overflow-x: hidden;
 }
 
+:root {
+    --azul: #0c8cdc;
+    --azul-claro: #7abfff;
+    --azul-escuro: #013a75;
+    --cinza-escuro: #333;
+    --branco-neve: #f9fbff;
+}
+
 .container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #FFF8F0;
+    background: var(--branco-neve);
     gap: 35px;
     position: relative;
     overflow: hidden;
@@ -37,7 +45,7 @@ body {
     left: 20px;
     top: 30px;
     text-decoration: none;
-    background: #5D9B6A;
+    background: var(--azul);
     padding: 10px 25px;
     border-radius: 6px;
     color: #FFFFFF;
@@ -47,7 +55,7 @@ body {
 .containerRegras {
     position: absolute;
     width: 50%;
-    background: #5D9B6A;
+    background: var(--azul-escuro);
     padding: 30px 10px;
     display: flex;
     flex-direction: column;
@@ -70,7 +78,7 @@ body {
 }
 
 .containerRegras h1 {
-    color: #3D6155;
+    color: var(--azul-claro);
 }
 
 .containerRegras ul {
@@ -91,12 +99,13 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 15px;
-    position: absolute;
+    position: fixed;
     right: 5%;
     top: 10%;
     width: 400px;
     height: 300px;
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(2px);
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -117,13 +126,13 @@ body {
 }
 
 .container-pontos h1 {
-    color: #3D6155;
+    color: var(--azul-escuro);
 }
 
 .pontos {
     font-size: 5rem;
     font-weight: 400;
-    color: #F89C94;
+    color: var(--azul);
 }
 
 .container-pontos img {
@@ -143,7 +152,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 35px;
-    background: #ffe9e6;
+    background: var(--azul-claro);
     border-radius: 12px;
     gap: 30px;
     transform: translateY(-100vh);
@@ -153,7 +162,7 @@ body {
 }
 
 .metaBatida h1 {
-    color: #5D9B6A;
+    color: var(--branco-neve);
 }
 
 .metaBatida.ativo {
@@ -165,18 +174,19 @@ body {
     left: 15px;
     top: 15px;
     cursor: pointer;
-    color: #F89C94;
+    color: var(--branco-neve);
 }
 
 .logo {
-    width: 100px;
-    border-radius: 50%;
+    width: 200px;
+    border-radius: 12px;
     align-items:flex-start;
 }
 
 .titulo {
-    color: #3D6155;
+    color: var(--azul-escuro);
     font-weight: 600;
+    font-size: 2rem;
 }
 
 #meta {
@@ -186,7 +196,7 @@ body {
     height: 50px;
     border-radius: 16px;
     padding: 12px;
-    background: #5D9B6A;
+    background: var(--azul-claro);
     color: #FFFFFF;
     font-size: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -205,7 +215,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #meta:focus {
-    border: 3px solid #F89C94;
+    border: 3px solid var(--azul);
 }
 
 .container-barra {
@@ -237,19 +247,19 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .cont-quantidade p {
-    color: #555555;
+    color: var(--azul-escuro);
     font-size: 1.5rem;
     font-weight: 600;
 }
 
 .cont-quantidade span {
-    color: #5D9B6A;
+    color: var(--azul);
     font-size: 3rem;
     font-weight: 500;
 }
 
 button {
-    background: #F89C94;
+    background: var(--azul-claro);
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -325,7 +335,9 @@ button:hover {
 
     .container-pontos {
         width: 30%;
-        height: 150px;
+        height: 120px;
+        justify-content: center;
+        gap: 5px;
         top: 5%;
     }
 
@@ -407,5 +419,25 @@ button:hover {
 
     .impressao {
         display: none;
+    }
+}
+
+@media (max-height:700px) {
+    .metaBatida {
+        transform: translateY(-200%);
+        height: 90vh;
+    }
+
+    .metaBatida img {
+        width: 50%;
+    }
+
+    .taca {
+        font-size: 2rem;
+        bottom: 25%;
+    }
+
+    .containerRegras {
+        height: 90%;
     }
 }

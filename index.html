@@ -45,6 +45,7 @@
 
             <h1>🎯 Meta atingida !!</h1>
         </div>
+
         <a onclick="verRegras()" class="btn-regras">Ver Regras 👁️</a>
 
         <img src="src/img/logo.png" alt="logo" class="logo">
@@ -79,8 +80,10 @@
 
         <div class="cont-buttons">
             <button onclick="contar()" id="calcPontos">+</button>
-            <button onclick="pegarQuantidade()"><img src="src/img/pizza.webp" alt="pizza" class="icone"></button>
-            <button onclick="zerarQuantidade()"><img src="src/img/deletar.png" alt="deletar" class="icone"></button>
+            <button onclick="pegarQuantidade(); pegarPonto()"><img src="src/img/pizza.webp" alt="pizza"
+                    class="icone"></button>
+            <button onclick="zerarQuantidade(); zerarPontos()"><img src="src/img/deletar.png" alt="deletar"
+                    class="icone"></button>
         </div>
 
     </div>

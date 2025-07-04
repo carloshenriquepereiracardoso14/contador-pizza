@@ -1,97 +1,145 @@
+# 🍕 Contador de Pizza
 
-# 🍕 Slice Hero
+Um projeto divertido e interativo feito com **HTML**, **CSS** e **JavaScript**, que permite registrar quantas fatias de pizza foram consumidas, definir uma meta, ver a pontuação baseada nas fatias e salvar os dados localmente no navegador. Feito para uma competição entre colegas da faculdade que ao final de cada semestre concluído era comemorado em um rodízio de pizza.
 
-Um projeto divertido e interativo para monitorar quantas fatias de pizza você já comeu, com sistema de pontuação, barra de progresso, som e salvamento no navegador!
+---
+
+## 📸 Prévia do Projeto
+
+![preview](src/img/preview.png)
 
 ---
 
 ## 🚀 Funcionalidades
 
-- ✅ Contador de fatias de pizza.
-- 🎯 Defina uma **meta de consumo** (quantidade de fatias desejadas).
-- 📈 Barra de progresso interativa que cresce conforme você consome fatias.
-- 💾 Dados persistem via `localStorage` (mesmo após atualizar a página).
-- 🗑️ Botão para **zerar** o contador.
-- 🍕 Botão para restaurar o valor salvo.
-- 🏆 Sistema de pontuação: **1 ponto a cada 3 fatias**.
-- 🎉 Animação e som de vitória ao atingir a meta.
-- 📄 Botão de impressão da tela.
-- 📋 Modal com **regras de uso**.
-- 🔊 Efeitos sonoros personalizados.
+- ✅ Adicionar fatias com um clique.
+- ✅ Definir uma meta e acompanhar o progresso visualmente.
+- ✅ Pontuação automática: a cada 3 fatias = 1 ponto.
+- ✅ Feedback com sons de mordida e vitória.
+- ✅ Modal de meta batida com gif animado.
+- ✅ Regras visuais com botão de ajuda.
+- ✅ Dados salvos no `localStorage`: continuam após fechar o navegador.
+- ✅ Compatível com desktops e dispositivos móveis.
 
 ---
 
-## 🧪 Tecnologias Utilizadas
+## 🧠 Como Funciona
 
-- **HTML5**
-- **CSS3** (com responsividade e animações)
-- **JavaScript puro (Vanilla JS)**
-- Google Fonts (`Poppins`)
-- Ícones do Google Material Symbols
+### 🎯 Meta
+- Você define um número de fatias como objetivo.
+- Quando esse número é atingido, uma animação e som de vitória são exibidos.
+
+### 🍕 Fatias
+- Clique no botão "+" para somar uma fatia.
+- Cada clique também atualiza a barra de progresso.
+
+### 🏆 Pontuação
+- A cada 3 fatias, você ganha 1 ponto automaticamente.
+- Os pontos são exibidos no placar lateral com um troféu 🏆.
 
 ---
 
-## 🗂️ Estrutura de Pastas
+## 🗂️ Estrutura do Projeto
 
 ```
 contador-pizza/
 │
-├── index.html
+├── index.html               # Página principal
+├── README.md                # Este arquivo
+│
 ├── src/
 │   ├── css/
-│   │   └── style.css
+│   │   └── style.css        # Estilo principal do projeto
 │   ├── js/
-│   │   ├── js.js
-│   │   └── pontos.js
+│   │   ├── js.js            # Lógica do contador e animações
+│   │   └── pontos.js        # Lógica da pontuação
 │   ├── img/
-│   │   ├── Pizza_Steve.png
-│   │   ├── vitoria.gif
-│   │   ├── deletar.png
-│   │   └── pizza.webp
+│   │   ├── logo.png         # Logo do projeto
+│   │   ├── pizza.webp       # Ícone do botão pizza
+│   │   ├── deletar.png      # Ícone do botão deletar
+│   │   ├── stevegif.gif     # Gif da vitória
+│   │   └── vitoria.gif      # Confetes ou gif de comemoração
 │   └── sound/
-│       ├── cartoon_bite_sound_effect.mp3
-│       └── you-win-sequence-1-183948.mp3
-└── README.md
+│       ├── cartoon_bite_sound_effect.mp3 # Som da mordida
+│       └── you-win-sequence-1-183948.mp3 # Som de vitória
 ```
 
 ---
 
-## 📦 Como Usar
+## 💾 Armazenamento
 
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/seu-usuario/contador-pizza.git
-   ```
+Este projeto utiliza o `localStorage` do navegador para armazenar:
 
-2. **Abra o arquivo `index.html`** em qualquer navegador moderno.
+- Contador de fatias
+- Pontuação
+- Meta
+- Progresso da barra
+
+Os dados permanecem salvos mesmo ao fechar e reabrir o navegador.
 
 ---
 
-## 💡 Como Funciona?
+## 🧩 Tecnologias Utilizadas
 
-- **Botão "+"**: adiciona uma fatia e atualiza o progresso.
-- **Campo de meta**: define o número total de fatias que você deseja atingir.
-- **Barra verde**: aumenta proporcionalmente até atingir a meta.
-- **Pontuação**: é calculada automaticamente com base nas fatias consumidas.
-- **Som de mordida**: é tocado a cada fatia registrada.
-- **Som de vitória + animação**: aparece ao atingir a meta.
-- **Zerar**: remove tudo do navegador e reinicia a contagem.
+- HTML5
+- CSS3 (com responsividade e variáveis)
+- JavaScript (DOM, localStorage, áudio)
+- Google Fonts (Poppins)
+- Material Symbols (ícones via Google Fonts)
 
 ---
 
 ## 📱 Responsividade
 
-Totalmente adaptado para diferentes tamanhos de tela — desde celulares até desktops.
+O projeto foi pensado para se adaptar a telas grandes e pequenas:
+
+- 💻 Desktop 100%
+- 📱 Celulares verticais e horizontais
+- 📟 Tablets
+
+Inclui media queries para ajustar tamanhos e esconder elementos que não cabem (como o botão de impressão).
 
 ---
 
-## ⚠️ Observações
+## 🔊 Áudio
 
-- Os dados são salvos apenas localmente no seu navegador, usando `localStorage`.
-- Certifique-se de inserir um número válido no campo de meta antes de começar.
+- **Mordida**: ao registrar uma fatia.
+- **Vitória**: ao bater a meta.
+- ⚠️ O áudio de vitória só será reproduzido automaticamente se o usuário interagir com a página (por política dos navegadores).
 
 ---
 
-## 📃 Licença
+## 🖨️ Impressão
 
-Este projeto é de uso livre para fins educacionais ou pessoais. Para usos comerciais, favor entrar em contato com o autor.
+- Botão `📄` no topo esquerdo abre o modo de impressão (somente para pc).
+
+---
+
+## 🛠️ Como Usar
+
+1. Baixe ou clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/contador-pizza.git
+   ```
+
+2. Abra o `index.html` no navegador.
+
+3. Divirta-se registrando fatias de pizza consumidas! 🍕
+
+ou acesse https://htmlpreview.github.io/?https://github.com/carloshenriquepereiracardoso14/contador-pizza/blob/master/index.html
+
+---
+
+## 👨‍💻 Autor
+
+**Carlos Henrique**  
+Feito com 💛 e fome de pizza.  
+📧 [carloscardosoesse@gmail.com]  
+🔗 [https://www.linkedin.com/in/carlos-henrique-835659232/]
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.  
+Sinta-se livre para usar, modificar e compartilhar!

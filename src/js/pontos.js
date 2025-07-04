@@ -19,6 +19,8 @@ calcPontos.addEventListener('click', () => {
     const taca = document.querySelector('.taca');
     const vitoriaGif = document.getElementById('vitoriaGif');
 
+    localStorage.setItem('contador', contador);  
+
     if (indicadorConvertido >= meta) {
         taca.classList.add('ativo');
         vitoriaGif.style.display = 'flex';
@@ -29,3 +31,34 @@ calcPontos.addEventListener('click', () => {
         vitoriaGif.style.display = 'none';
     }
 });
+
+function pegarPonto() {
+    const pontoSalvo = localStorage.getItem('pontos');
+
+    document.querySelector('.pontos').innerHTML = pontoSalvo || '0';
+}
+
+function zerarPontos() {
+    localStorage.removeItem('pontos');
+}
+
+const regras = document.querySelector('.containerRegras');
+
+window.addEventListener('click', (event) => {
+    if (event.target === container) {
+        regras.classList.remove('ativo');
+    }
+})
+
+function verRegras() {
+    regras.classList.add('ativo');
+}
+
+function fecharRegras() {
+    regras.classList.remove('ativo');
+}
+
+function fecharMeta() {
+    const metaBatida = document.querySelector('.metaBatida');
+    metaBatida.classList.remove('ativo');
+}

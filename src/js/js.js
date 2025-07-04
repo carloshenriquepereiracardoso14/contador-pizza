@@ -13,7 +13,15 @@ function contar() {
     if (!isNaN(meta)) {
         contador++;
         document.getElementById('indicador').innerHTML = contador;
+
+        // calcular pontos com base no contador
+        const pontos = Math.floor(contador / 3);
+        document.querySelector('.pontos').textContent = pontos;
+        localStorage.setItem('pontos', pontos);
+
         localStorage.setItem('contador', contador);  
+        localStorage.setItem('meta', meta);
+
         somMordida.currentTime = 0;
         somMordida.play();
         addBarra();
@@ -40,13 +48,35 @@ function pegarQuantidade() {
     let valor = parseInt(localStorage.getItem('contador')) || 0;
     contador = valor;
     document.getElementById('indicador').innerHTML = contador;
+
+    const metaSalva = parseInt(localStorage.getItem('meta'));
+    const meta = document.getElementById('meta');
+    meta.value = metaSalva;
+
+    ajustarBarra();
+
+    if (!isNaN(metaSalva) && valor >= metaSalva) {
+        const metaBatida = document.querySelector('.metaBatida');
+        metaBatida.classList.add('ativo');
+        soundWin.currentTime = 0;
+        soundWin.play();
+
+        window.addEventListener('click', (event) => {
+            if (event.target === container) {
+                metaBatida.classList.remove('ativo');
+            }
+        });
+
+    }
 }
 
 function zerarQuantidade() {    
     contador = 0;
     document.getElementById('indicador').innerHTML = contador;
     localStorage.removeItem('contador');
-    barra.style.width = 0 + 'px';
+    localStorage.removeItem('tamanhoBarra');
+    const tamanhoBarraAtual = localStorage.getItem('tamanhoBarra')
+    barra.style.width = tamanhoBarraAtual;
 
     const taca = document.querySelector('.taca');
     taca.classList.remove('ativo');
@@ -58,6 +88,9 @@ function zerarQuantidade() {
 
     const pontos = document.querySelector('.pontos');
     pontos.textContent = 0;
+
+    localStorage.removeItem('meta');
+    document.getElementById('meta').value = '';
 }
 
 function addBarra() {
@@ -66,26 +99,17 @@ function addBarra() {
         let barra = document.getElementById('barra');
         let porcentagem = (contador / meta) * 100;
         barra.style.width = porcentagem + '%';
+        const tamanhoBarra = barra.style.width;
+        
+        localStorage.setItem('tamanhoBarra', tamanhoBarra);
     }
 }
 
-const regras = document.querySelector('.containerRegras');
+function ajustarBarra() {
+    const tamanhoBarra = localStorage.getItem('tamanhoBarra');
+    const barra = document.getElementById('barra');
 
-window.addEventListener('click', (event) => {
-    if (event.target === container) {
-        regras.classList.remove('ativo');
+    if (tamanhoBarra) {
+        barra.style.width = tamanhoBarra;
     }
-})
-
-function verRegras() {
-    regras.classList.add('ativo');
-}
-
-function fecharRegras() {
-    regras.classList.remove('ativo');
-}
-
-function fecharMeta() {
-    const metaBatida = document.querySelector('.metaBatida');
-    metaBatida.classList.remove('ativo');
 }
