@@ -290,15 +290,6 @@ button:hover {
     height: auto;
 }
 
-.impressao {
-    position: absolute;
-    left: 5%;
-    top: 15%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-}
-
 @media (min-width: 769px) and (max-width:1400px) {
     .containerRegras {
         width: 80%;
@@ -415,10 +406,6 @@ button:hover {
 @media (max-width:950px) {
     .container-pontos {
         top: 6%;
-    }
-
-    .impressao {
-        display: none;
     }
 }
 
