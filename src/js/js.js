@@ -60,6 +60,8 @@ function pegarQuantidade() {
         metaBatida.classList.add('ativo');
         soundWin.currentTime = 0;
         soundWin.play();
+        const vitoriaGif = document.getElementById('vitoriaGif');
+        vitoriaGif.style.display = 'flex';
 
         window.addEventListener('click', (event) => {
             if (event.target === container) {
