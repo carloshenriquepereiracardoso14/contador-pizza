@@ -9,37 +9,54 @@ const FILES_TO_CACHE = [
   "./img/pizza-icon-512.png"
 ];
 
-// Instala o service worker e faz cache dos arquivos
+// Instalando e armazenando no cache
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(FILES_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
   self.skipWaiting();
 });
 
-// Ativa o novo service worker e limpa caches antigos
+// Limpando caches antigos
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keyList) =>
+    caches.keys().then((keys) =>
       Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
+        keys.map((key) => key !== CACHE_NAME && caches.delete(key))
       )
     )
   );
   self.clients.claim();
 });
 
-// Intercepta requisições e retorna do cache quando offline
+// Resposta a requisições
 self.addEventListener("fetch", (event) => {
+  // Apenas GET
+  if (event.request.method !== "GET") return;
+
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+    caches.match(event.request).then((cachedResponse) => {
+      // Se existir no cache, retorna
+      if (cachedResponse) return cachedResponse;
+
+      // Senão, busca na rede e salva no cache
+      return fetch(event.request)
+        .then((response) => {
+          if (!response || response.status !== 200 || response.type !== "basic") {
+            return response;
+          }
+
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) =>
+            cache.put(event.request, responseToCache)
+          );
+
+          return response;
+        })
+        .catch(() => {
+          // fallback opcional: você pode retornar uma página offline aqui
+          // return caches.match('./offline.html');
+        });
     })
   );
 });
