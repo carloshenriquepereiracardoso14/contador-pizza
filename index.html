@@ -151,6 +151,12 @@
     <script src="src/js/js.js"></script>
     <script src="src/js/pontos.js"></script>
     <script src="src/js/modo-dark.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registered!'));
+    }
+</script>
     
 </body>
 
