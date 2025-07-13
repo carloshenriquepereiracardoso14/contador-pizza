@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="src/css/style.css" media="all">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="shortcut icon" href="src/img/Pizza_Steve.png" type="image/x-icon">
     <title>Contador de pizza</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d84315">
+    <link rel="icon" href="src/img/pizza-icon-192.png" sizes="192x192">
+
+
 </head>
 
 <body>
@@ -151,8 +156,9 @@
     <script src="src/js/modo-dark.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .then(() => console.log('Service Worker registered!'));
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('SW registrado:', reg))
+                .catch(err => console.error('Falha no registro do SW:', err));
         }
     </script>
 
